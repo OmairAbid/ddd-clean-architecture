@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  web.admin.gw:
+    build:
+      context: .
+      dockerfile: ApiGateways/Web.Admin/Web.Admin.GW/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+    ports:
+      - "5000:80"
+      - "4000:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  configuration-api:
+    build:
+      context: .
+      dockerfile: Services/ConfigurationService/Presentation/API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5001:80"

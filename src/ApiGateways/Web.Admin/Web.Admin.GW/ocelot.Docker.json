@@ -1,0 +1,32 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:443"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/services/{url}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "admin_auth_scheme",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "UserRole": "Claims[http://schemas.microsoft.com/ws/2008/06/identity/claims/role] > value[0] > |",
+        "UserEmail": "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] > value[0] > |"
+      }
+    }
+  ]
+}

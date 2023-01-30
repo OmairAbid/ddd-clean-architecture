@@ -1,0 +1,44 @@
+version: '3.4'
+name: compose_dev
+services:
+  web.admin-gw:
+    build:
+      context: .
+      dockerfile: ApiGateways/Web.Admin/Web.Admin.GW/Dockerfile.Dev
+    container_name: apigateway.admin
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=4000
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=mypass123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - "5000:80"
+      - "4000:443"
+
+  configurationservice-api:
+    build:
+      context: .
+      dockerfile: Services/ConfigurationService/Presentation/API/Dockerfile.Dev
+    container_name: configuration.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+
+      - ConnectionStrings__DBProvider=SQL
+      - ConnectionStrings__DBConnectiongString=Data Source=192.168.1.40;Initial Catalog=SH10Services;User Id=dotnetadmin;Password=p@ssword12;TrustServerCertificate=True
+    ports:
+      - "5001:80"
+
+  authenticationservice-mvc:
+    build:
+      context: .
+      dockerfile: Authentications/AuthenticationService.MVC/Dockerfile.Dev
+    container_name: authentication.mvc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=3000
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=mypass123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - "3000:443"

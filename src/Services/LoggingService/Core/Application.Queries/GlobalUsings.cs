@@ -1,0 +1,11 @@
+﻿global using Application.Queries.Common.Behaviours;
+global using Application.Queries.Contracts.Repositories.Queries;
+global using AutoMapper;
+global using Domain.Entities;
+global using FluentValidation;
+global using FluentValidation.Results;
+global using MediatR;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using System.Reflection;
+global using System.Runtime.Serialization;

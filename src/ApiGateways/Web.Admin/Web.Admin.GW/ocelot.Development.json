@@ -1,0 +1,40 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000;https://localhost:4000"
+  },
+  "Routes": [
+    {
+      //"DownstreamHeaderTransform": {
+      //  "p3p": "CP=&quot;Internet Explorer Requires This In Order to Set Third Party Cookies&quot;",
+      //  "X-XSS-Protection": "1; mode=block",
+      //  "X-Content-Type-Options": "nosniff",
+      //  "Strict-Transport-Security": "max-age=31536000;includeSubDomains; preload"
+      //},
+
+
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/services/{url}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "admin_auth_scheme",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "UserRole": "Claims[http://schemas.microsoft.com/ws/2008/06/identity/claims/role] > value[0] > |",
+        "UserEmail": "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] > value[0] > |"
+      }
+    }
+  ]
+}

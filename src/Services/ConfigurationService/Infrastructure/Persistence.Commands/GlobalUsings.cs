@@ -1,0 +1,11 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using System.Collections.Generic;
+global using Domain.Entities;
+global using Domain.Common;
+global using System.Linq.Expressions;
+global using Persistence.Commands.ORM;
+global using Microsoft.Extensions.DependencyInjection;
+global using Application.Commands.Contracts.Repositories;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Persistence.Commands.Repositories;

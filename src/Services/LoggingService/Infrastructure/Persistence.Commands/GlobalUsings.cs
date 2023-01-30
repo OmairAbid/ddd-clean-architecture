@@ -1,0 +1,9 @@
+﻿global using Application.Commands.Contracts.Repositories.Commands;
+global using Domain.Common;
+global using Domain.Entities;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Persistence.Commands.ORM;
+global using Persistence.Commands.Repositories;

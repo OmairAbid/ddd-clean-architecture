@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  web.admin-gw:
+    image: ${registry}/admin-gateway:dev1.0
+
+  configurationservice-api:
+    image: ${registry}/admin-service-configuration:dev1.0
+
+  authenticationservice-mvc:
+    image: ${registry}/admin-service-authentication:dev1.0
