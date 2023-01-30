@@ -18,9 +18,9 @@ I have segregated this layer into two parts to facilitate cqrs pattern. Currentl
 <h2> 2. Infrastructure: </h2>
 With the entities, use cases, and controllers in place, there’s only one more layer left: The infrastructure layer. This layer contains things like database adapters or API calls to third-party APIs.
 I have segregated this layer into two parts to separate read and write database operations. Currently, we have a single app for both command and query operations but with this approach, we can easily separate the logic for separate deployable apps.
-a)	For Command 
+<li>	For Command </li> 
 I’m using Entity Framework as ORM for database write operations.
-b)	For Query
+<li>	For Query </li>
 I’m using Dapper as Mico-ORM for database read operations.
 <h2> 3. Presentation: </h2>
 I have built a REST API, and the consumer of the API can invoke the use cases using a command handler.
