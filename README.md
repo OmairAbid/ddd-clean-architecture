@@ -1,7 +1,5 @@
 An example to show how you could use clean architecture and DDD and their advantages.
 
-Path: src/Services/ConfigurationService/
-
 Using clean architecture as architecture style combines with Domain-driven Design because we completely focus on our domain core (entities and use cases). In my opinion, Domain-driven Design (DDD) perfectly combines with clean architecture due to the fact that DDD is focused on your business domain. Focusing on your domain is supported by the goal of clean architecture, keeping the domain free of any framework or technologies. E.g. your domain does not focus on how to persist something, it just tells the outgoing port to save it. The implementation of the port (placed on the adapter layer) decides to use, e.g., relational or non-relational databases.
 
 Beside the matching goal of DDD and clean architecture, DDD tries to help you build complex designs around your domain, by e.g., building immutable objects that know all about their invariants, which helps you even more to structure your code.
