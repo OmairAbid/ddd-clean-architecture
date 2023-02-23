@@ -48,15 +48,7 @@ public class GetAllConnectorsRequestHandler : IRequestHandler<GetConnectorsQuery
 public class GetConnectorQueryResponse
 {
     public long Id { get; protected set; }
-    public string Name { get; set; }
-    public string Provider { get; set; }
-    public string Identifier { get; set; }
-    public int Status { get; set; }
-    public bool IsForADSS { get; set; }
-    public string Purpose { get; set; }
-    public string Type { get; set; }
-    public List<string> Purposes { get; set; }
-    public IList<ConnectorDetailsResponse> ConnectorDetail { get; set; }
+    
 }
 
 #endregion
